@@ -21,7 +21,7 @@ if (window.location.href.indexOf("bbs.mihoyo.com/ys") > 0) {
                         Promise.all([ths.queryBaseInfo(uid), ths.queryAbyssInfo(uid)]).then(values => {
                             let baseInfoJson = values[0];
                             console.log('baseInfoJson结果===>',baseInfoJson)
-                            ths.getCharacter(baseInfoJson)
+                            ths.getCharacter(baseInfoJson.data.avatars)
                             let abyssInfoJson = values[1];
                             if (baseInfoJson.retcode == 0) {
                                 console.log('查询成功，开始渲染结果');
