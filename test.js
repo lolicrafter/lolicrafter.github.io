@@ -21,6 +21,7 @@ if (window.location.href.indexOf("bbs.mihoyo.com/ys") > 0) {
                         Promise.all([ths.queryBaseInfo(uid), ths.queryAbyssInfo(uid)]).then(values => {
                             let baseInfoJson = values[0];
                             console.log('baseInfoJson结果===>',baseInfoJson)
+                            ths.getCharacter(baseInfoJson)
                             let abyssInfoJson = values[1];
                             if (baseInfoJson.retcode == 0) {
                                 console.log('查询成功，开始渲染结果');
@@ -150,6 +151,63 @@ if (window.location.href.indexOf("bbs.mihoyo.com/ys") > 0) {
                     }
                 })
             },
+            getCharacter: function (array) {
+                const allArray = [
+                    '神里绫华',
+                    '甘雨',
+                    '刻晴',
+                    '胡桃',
+                    '优菈',
+                    '诺艾尔',
+                    '钟离',
+                    '琴',
+                    '迪卢克',
+                    '温迪',
+                    '达达利亚',
+                    '阿贝多',
+                    '莫娜',
+                    '枫原万叶',
+                    '珊瑚宫心海',
+                    '行秋',
+                    '菲谢尔',
+                    '班尼特',
+                    '香菱',
+                    '九条裟罗',
+                    '迪奥娜',
+                    '旅行者',
+                    '芭芭拉',
+                    '砂糖',
+                    '北斗',
+                    '凯亚',
+                    '烟绯',
+                    '雷泽',
+                    '凝光',
+                    '重云',
+                    '丽莎',
+                    '安柏',
+                    '荒泷一斗',
+                    '罗莎莉亚',
+                    '早柚',
+                    '云堇',
+                    '埃洛伊',
+                    '辛焱',
+                    '五郎',
+                    '申鹤',
+                    '托马',
+                    '雷电将军',
+                    '宵宫',
+                    '魈',
+                    '可莉',
+                    '七七'
+                ]
+                const haveNameArray = array.map(item=>{return item.name})
+                let res = allArray.filter(item=>{
+                    if(!haveNameArray.includes(item)){
+                        return item
+                    }
+                })
+                console.log('缺少的角色===>', res)
+            }
         };
     }
     window._ysq = new GenshinInfoFetcher();
