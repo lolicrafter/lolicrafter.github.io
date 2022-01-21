@@ -20,8 +20,8 @@ if (window.location.href.indexOf("bbs.mihoyo.com/ys") > 0) {
 
                         Promise.all([ths.queryBaseInfo(uid), ths.queryAbyssInfo(uid)]).then(values => {
                             let baseInfoJson = values[0];
+                            console.log('baseInfoJson结果===>',baseInfoJson)
                             let abyssInfoJson = values[1];
-                            
                             if (baseInfoJson.retcode == 0) {
                                 console.log('查询成功，开始渲染结果');
                                 document.body.innerHTML = '';
@@ -156,3 +156,4 @@ if (window.location.href.indexOf("bbs.mihoyo.com/ys") > 0) {
 } else {
     alert('页面地址错误，请在米游社原神页面使用本书签：https://bbs.mihoyo.com/ys/');
 }
+
