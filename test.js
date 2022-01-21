@@ -20,7 +20,6 @@ if (window.location.href.indexOf("bbs.mihoyo.com/ys") > 0) {
 
                         Promise.all([ths.queryBaseInfo(uid), ths.queryAbyssInfo(uid)]).then(values => {
                             let baseInfoJson = values[0];
-                            console.log('baseInfoJson结果===>',baseInfoJson)
                             ths.getCharacter(baseInfoJson.data.avatars)
                             let abyssInfoJson = values[1];
                             if (baseInfoJson.retcode == 0) {
@@ -152,6 +151,8 @@ if (window.location.href.indexOf("bbs.mihoyo.com/ys") > 0) {
                 })
             },
             getCharacter: function (array) {
+                console.log('getCharacter===>',array)
+
                 const allArray = [
                     '神里绫华',
                     '甘雨',
