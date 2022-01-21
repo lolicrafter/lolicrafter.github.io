@@ -151,8 +151,6 @@ if (window.location.href.indexOf("bbs.mihoyo.com/ys") > 0) {
                 })
             },
             getCharacter: function (array) {
-                console.log('getCharacter===>',array)
-
                 const allArray = [
                     '神里绫华',
                     '甘雨',
